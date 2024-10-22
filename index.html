@@ -3,216 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muatasim Miller - Flexbox Project</title>
+    <title>Constellation Flashcards</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
+            background-color: #FF7F50; 
             font-family: Arial, sans-serif;
-            background-color: #555555; 
-            color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth; 
+            color: #fff;
+            text-align: center;
         }
 
-        
-        nav {
-            background-color: #444444;
-            padding: 10px 0;
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .flashcard {
+            background-color: #1e1e1e; 
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            min-height: 150px;
             display: flex;
-            justify-content: center; 
-            gap: 40px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav a {
-            color: #f0f0f0;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            color: #86945e;
-        }
-
-        /* Hero section with Flexbox */
-        .hero {
-            display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 50px 20px;
-            margin-top: 70px; /* To account for the fixed nav bar */
-            text-align: center;
         }
 
-        .hero img {
-
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid #86945e; /* Green circular outline */
-            object-fit: cover;
-            margin-bottom: 15px;
+        #card-content {
+            font-size: 1.5em;
         }
 
-        .hero h1 {
-            color: #86945e;
-            font-size: 36px;
-            margin-bottom: 15px;
+        .buttons {
+            margin-bottom: 20px;
         }
 
-        .hero p {
-            font-size: 18px;
-            max-width: 600px;
-            text-align: center;
-            line-height: 1.5;
-        }
-
-        .linkedin-button {
-            background-color: #86945e;
-            color: #f0f0f0;
+        button {
+            background-color: #333333; 
+            color: #fff;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
+            font-size: 1em;
             cursor: pointer;
-            font-size: 16px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 15px;
+            transition: background-color 0.3s ease;
         }
 
-        .linkedin-button:hover {
-            background-color: #f0f0f0;
-            color: #86945e;
+        button:hover {
+            background-color: rgba(211, 211, 211);
         }
 
-      
-        .about-me {
-            padding: 50px 20px;
-            background-color: #444444;
-        }
-
-        .about-me h2 {
-            color: #86945e;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .about-me .about-content {
+        .add-card-form {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            gap: 10px; 
+            margin-top: 20px;
         }
 
-        
-        .about-me .image-row {
-            display: flex;
-            justify-content: space-around; 
-            gap: 20px;
-            margin-bottom: 20px;
+        .add-card-form input {
+            padding: 10px;
+            border: 2px solid #333333;
+            border-radius: 5px;
+            width: 200px;
+            transition: background-color 0.3s ease;
         }
 
-        .about-me img {
-            width: 150px;
-            height: 150px;
-            border-radius: 10px;
-            background-color: #333333;
-            object-fit: cover;
+        .add-card-form input:hover {
+            background-color: rgba(211, 211, 211);
         }
 
-        .about-me p {
-            font-size: 18px;
-            max-width: 600px;
-            line-height: 1.5;
-            text-align: center;
+        .add-card-form button {
+            background-color: #333333; 
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        
-        .projects-section {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #555555;
+        .add-card-form button:hover {
+            background-color: rgba(211, 211, 211);
         }
-
-        .projects-section h2 {
-            color: #86945e;
-        }
-
-        .projects-section p {
-            font-size: 18px;
-        }
-
-        
-        .projects-gallery {
-            display: flex;
-            justify-content: space-around;
-            gap: 20px;
-            padding: 20px 0;
-        }
-
-        .projects-gallery img {
-            width: 150px;
-            height: 150px;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
     </style>
 </head>
+
 <body>
+    <div class="container">
+        <h1>Constellation Flashcards</h1>
 
-    
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about-me">About Me</a>
-        <a href="#projects-section">Projects</a>
-    </nav>
+        <div class="flashcard" id="flashcard">
+            <p id="card-content">Orion: The Hunter</p>
+        </div>
 
-    
-    <div class="hero" id="home">
-        <img src="images/IMG_0838.jpg" alt="A picture of Muatasim Miller">
-        <h1>Muatasim Miller</h1>
-        <p>Hello! I'm Muatasim Miller. I'm a student at the University of Maryland with an interest in computer science. I'm fascinated by space exploration, and am pursuing a career in programming to contribute to the future of the industry.</p>
-        <a href="https://www.linkedin.com/in/muatasim-miller-3254022b0" class="linkedin-button" target="_blank">Connect on LinkedIn</a>
-    </div>
+        <div class="buttons">
+            <button id="prev-btn">Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
 
-   
-    <div class="about-me" id="about-me">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <!-- Horizontal row of images -->
-            <div class="image-row">
-                <img src="images/IMG_0758.jpg" alt="About Me Picture 1">
-                <img src="images/IMG_3985.jpg" alt="About Me Picture 2">
-                <img src="images/20221107_222523.jpg" alt= "About Me Picture 3">
-            </div>
-            <p>
-                I consider myself to be someone who has always gravitated towards technology, and the process of complex problem solving. 
-                My studies originally started with information technology, specifically hardware repair. 
-                For as long as I could hold a screw driver, I was tinkering with whatever I could get my hands on. 
-                Eventually, I started becoming more interested in things that were less physical, and ways to fix them, which compelled me to become engrossed in the field of psychology, and the way that the innerworkings of our brains interacted with the physical world. 
-                Through my exploration of these two fields, I came to the realization that computer science offered a synthesis of these two interests, and I decided to pursue this field in order to create an application of the two that will be of benefit to the world. 
-        
-            </p>
+        <div class="add-card-form">
+            <input type="text" id="new-term" placeholder="Enter constellation name">
+            <input type="text" id="new-definition" placeholder="Enter constellation details">
+            <button id="add-card-btn">Add Card</button>
         </div>
     </div>
-
-    <!-- Projects section -->
-    <div class="projects-section" id="projects-section">
-        <h2>Projects</h2>
-        <div class="projects-gallery">
-            <img src="images/20240811_220737.jpg" alt="Picture of ">
-            <img src="images/76d59b519b75b571db69920a1d411c50.jpg" alt="Project 2">
-            <img src="images/Screenshot_20240620_202121_Instagram.jpg" alt="Project 3">
-        </div>
-        <p>Come back later....</p>
-    </div>
-
+    <script src="script.js"></script>
 </body>
+
 </html>
-
-
-  
